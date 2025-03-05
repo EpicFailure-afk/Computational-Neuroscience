@@ -2,6 +2,7 @@ def custom_random(low, high, seed):
     seed = (seed * 9301 + 49297) % 233280
     return low + (seed / 233280.0) * (high - low)
 
+
 def custom_exponential(x, terms):
     res = 1
     fact = 1
@@ -14,10 +15,12 @@ def custom_exponential(x, terms):
         count += 1
     return res
 
+
 def custom_tanh(x):
     exp_x = custom_exponential(x, 10)
     exp_neg_x = custom_exponential(-x, 10)
     return (exp_x - exp_neg_x) / (exp_x + exp_neg_x)
+
 
 seed = 42
 values = []
@@ -49,5 +52,3 @@ print("Hidden Outputs: h1 =", h1_output, ", h2 =", h2_output)
 print("Output Values: o1 =", o1_output, ", o2 =", o2_output)
 print("Losses: E_o1 =", E_o1, ", E_o2 =", E_o2)
 print("Total Loss:", total_loss)
-
-
